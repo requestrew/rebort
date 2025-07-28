@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify You're Human</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .container {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #1877f2;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Please Verify You're Not a Robot</h2>
+    <form action="success.html" method="POST">
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE" data-callback="enableSubmit"></div>
+      <button id="submitBtn" type="submit" disabled>Verify</button>
+    </form>
+  </div>
+
+  <script>
+    function enableSubmit() {
+      document.getElementById("submitBtn").disabled = false;
+    }
+  </script>
+</body>
+</html>
