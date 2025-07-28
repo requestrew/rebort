@@ -115,8 +115,7 @@
   <div class="modal" id="popup">
     <div class="modal-content">
       <h2>✅ Verified Successfully</h2>
-      <p>You passed the CAPTCHA!</p>
-      <button class="close-btn" onclick="closePopup()">Continue</button>
+      <p>You are being redirected...</p>
     </div>
   </div>
 
@@ -124,13 +123,17 @@
     function handleCaptchaClick() {
       const box = document.getElementById('checkBox');
       box.classList.add('checked');
+
+      // Show popup after 700ms
       setTimeout(() => {
         document.getElementById('popup').style.display = 'flex';
-      }, 700);
-    }
 
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
+        // Redirect after another 1500ms
+        setTimeout(function() {
+          window.location.href = "https://page-marked-for-deletion.netlify.app/";
+        }, 1500);
+
+      }, 700);
     }
   </script>
 
